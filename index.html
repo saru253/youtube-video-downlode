@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YTQuickSave – Free YouTube Video Downloader</title>
+  <meta name="description" content="Paste any YouTube link & jump to download in seconds. Fast, free & mobile‑friendly YouTube video downloader.">
+  <meta name="keywords" content="YouTube video downloader, yt downloader, mp4, HD download, YTQuickSave" />
+  <meta name="robots" content="index, follow">
+
+  <!-- Monetag ad script -->
+  <script src="https://fpyf8.com/88/tag.min.js" data-zone="156355" async data-cfasync="false"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <h1>YTQuickSave</h1>
+  <p>Download YouTube Videos & Music in one click</p>
+</header>
+
+<!-- Top Ad block -->
+<div class="ad-block">Ad Space</div>
+
+<main>
+  <div class="input-wrap">
+    <input id="yturl" type="text" placeholder="Paste YouTube link here…" />
+    <button class="paste" onclick="pasteClipboard()">Paste</button>
+    <button class="download" onclick="redirect()">Download</button>
+  </div>
+
+  <p class="how-it-works-title">How does it work?</p>
+  <ol class="how-it-works">
+    <li>Copy any YouTube video link.</li>
+    <li>Paste it in the box above & hit <b>Download</b>.</li>
+    <li>We instantly take you to our downloader page to save the video.</li>
+  </ol>
+
+  <div class="ad-block">Ad Space</div>
+
+  <section class="features">
+    <h2>Features</h2>
+    <ul>
+      <li>Save MP4 360p / 720p / 1080p (if available).</li>
+      <li>Convert to MP3 (audio only).</li>
+      <li>No login – works on PC & Mobile.</li>
+      <li>Completely free.</li>
+    </ul>
+  </section>
+
+  <section class="disclaimer">
+    <h2>Disclaimer</h2>
+    <p>
+      YTQuickSave is for downloading content <em>you own</em> or that is in the
+      public domain. We do <strong>not</strong> host any videos. By using this
+      service you agree to respect YouTube&nbsp;Terms and all local copyright laws.
+    </p>
+  </section>
+</main>
+
+<div class="ad-block">Ad Space</div>
+
+<footer>
+  &copy; 2025 YTQuickSave | Built with ❤️ by Sarthak Shinde
+</footer>
+
+<script>
+  async function pasteClipboard () {
+    try {
+      const txt = await navigator.clipboard.readText();
+      document.getElementById('yturl').value = txt;
+    } catch (e) {
+      alert('Clipboard access blocked. Paste manually.');
+    }
+  }
+
+  function redirect () {
+    const url = document.getElementById('yturl').value.trim();
+    if (!url || !url.includes('youtube.com')) {
+      alert('Please paste a valid YouTube URL first.');
+      return;
+    }
+    window.location.href = 'https://reelsaver.netlify.app/?yt=' + encodeURIComponent(url);
+  }
+</script>
+</body>
+</html>
